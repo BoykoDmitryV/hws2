@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/BoykoDmitryV/hws2.git/static/css/main.5b37a4a5.css",
+    "main.js": "/BoykoDmitryV/hws2.git/static/js/main.1a456aa3.js",
+    "static/js/787.66cb4309.chunk.js": "/BoykoDmitryV/hws2.git/static/js/787.66cb4309.chunk.js",
+    "index.html": "/BoykoDmitryV/hws2.git/index.html",
+    "main.5b37a4a5.css.map": "/BoykoDmitryV/hws2.git/static/css/main.5b37a4a5.css.map",
+    "main.1a456aa3.js.map": "/BoykoDmitryV/hws2.git/static/js/main.1a456aa3.js.map",
+    "787.66cb4309.chunk.js.map": "/BoykoDmitryV/hws2.git/static/js/787.66cb4309.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5b37a4a5.css",
+    "static/js/main.1a456aa3.js"
+  ]
+}
