@@ -1,41 +1,29 @@
-import React, {ChangeEvent, KeyboardEvent} from 'react'
-import s from './Greeting.module.css'
+import React, { ChangeEvent, KeyboardEvent } from 'react';
+import s from './Greeting.module.css';
 
 type GreetingPropsType = {
-    name: string // need to fix any
-    setNameCallback: (value: string) => void // need to fix any
-    addUser: () => void // need to fix any
-    onBlur: () => void // need to fix any
-    onEnter: (e: React.KeyboardEvent<HTMLInputElement>) => void // need to fix any
-    error: string // need to fix any
-    totalUsers: number // need to fix any
-    lastUserName?: string // need to fix any
-}
+    name: string;
+    setNameCallback: (e: ChangeEvent<HTMLInputElement>) => void; // Исправлено: принимает событие
+    addUser: () => void;
+    onBlur: () => void;
+    onEnter: (e: KeyboardEvent<HTMLInputElement>) => void;
+    error: string;
+    totalUsers: number;
+    lastUserName?: string;
+};
 
-// презентационная компонента (для верстальщика)
-const Greeting: React.FC<GreetingPropsType> = (
-    {
-        name,
-        setNameCallback,
-        addUser,
-        onEnter,
-        onBlur,
-        error,
-        totalUsers,
-        lastUserName,
-    } // деструктуризация пропсов
-) => {
-    const inputClass = error ? `${s.input} ${s.errorInput}` : s.input; // need to fix with (?:)
+const Greeting: React.FC<GreetingPropsType> = ({
+                                                   name,
+                                                   setNameCallback,
+                                                   addUser,
+                                                   onEnter,
+                                                   onBlur,
+                                                   error,
+                                                   totalUsers,
+                                                   lastUserName,
+                                               }) => {
+    const inputClass = error ? `${s.input} ${s.errorInput}` : s.input;
 
-    // Обработчик изменения значения в input
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setNameCallback(e.target.value);
-    };
-
-    // Обработчик нажатия клавиши в input
-    const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-        onEnter(e);
-    };
     return (
         <div id={'hw3-form'} className={s.greetingForm}>
             <div className={s.text}>
@@ -48,12 +36,12 @@ const Greeting: React.FC<GreetingPropsType> = (
             <div className={s.inputAndButtonContainer}>
                 <div>
                     <input
-                        id={'hw3-input'}
+                        id="hw3-input"
                         value={name}
-                        onChange={handleChange}
-                        className={`Greeting_input ${error ? 'Greeting_errorInput' : ''}`.trim()}
-                        onKeyDown={handleKeyDown}
+                        onChange={setNameCallback} // Исправлено: передаем событие
                         onBlur={onBlur}
+                        onKeyDown={onEnter}
+                        className={inputClass}
                     />
                     <div id={'hw3-error'} className={s.error}>
                         {error}
@@ -76,7 +64,7 @@ const Greeting: React.FC<GreetingPropsType> = (
                 </div>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default Greeting
+export default Greeting;
