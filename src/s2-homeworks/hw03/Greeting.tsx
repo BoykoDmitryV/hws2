@@ -51,7 +51,7 @@ const Greeting: React.FC<GreetingPropsType> = (
                         id={'hw3-input'}
                         value={name}
                         onChange={handleChange}
-                        className={`Greeting_input ${error ? 'Greeting_errorInput' : ''}`}
+                        className={`Greeting_input ${error ? 'Greeting_errorInput' : ''}`.trim()}
                         onKeyDown={handleKeyDown}
                         onBlur={onBlur}
                     />
